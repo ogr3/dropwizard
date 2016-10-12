@@ -12,6 +12,7 @@
         <java.version>1.8</java.version>
         <maven.version>3.3.3</maven.version>
         <dropwizard.version>1.0.2</dropwizard.version>
+        <dropwizard.metrics.version>3.1.2</dropwizard.metrics.version>
     </properties>
 
     <dependencies>
@@ -28,7 +29,12 @@
         <dependency>
             <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-annotation</artifactId>
-            <version>3.1.2</version>
+            <version>${dropwizard.metrics.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-healthchecks</artifactId>
+            <version>${dropwizard.metrics.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
