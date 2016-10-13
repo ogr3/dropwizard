@@ -1,7 +1,6 @@
 package org.cybermoose;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.Builder;
@@ -13,12 +12,10 @@ import org.hibernate.validator.constraints.Length;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonDeserialize(builder = HelloWorld.HelloWorldBuilder.class)
 public class HelloWorld {
-    @JsonProperty
-    private long id;
+    private final long id;
 
     @Length(max = 3)
-    @JsonProperty
-    private String content;
+    private final String content;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static final class HelloWorldBuilder {

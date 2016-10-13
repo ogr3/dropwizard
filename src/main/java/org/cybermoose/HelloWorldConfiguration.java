@@ -1,17 +1,16 @@
 package org.cybermoose;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.dropwizard.Configuration;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class HelloWorldConfiguration extends Configuration {
     @NotEmpty
-    @JsonProperty
     private String template;
 
     @NotEmpty
-    @JsonProperty
     private String defaultName = "Stranger";
 }
