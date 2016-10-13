@@ -1,13 +1,11 @@
 package org.cybermoose;
 
 import com.codahale.metrics.health.HealthCheck;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class TemplateHealthCheck extends HealthCheck {
     private final String template;
-
-    public TemplateHealthCheck(String template) {
-        this.template = template;
-    }
 
     @Override
     protected Result check() throws Exception {
