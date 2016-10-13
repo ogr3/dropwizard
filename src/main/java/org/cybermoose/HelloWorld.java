@@ -1,30 +1,19 @@
 package org.cybermoose;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
 public class HelloWorld {
+    @JsonProperty
     private long id;
 
     @Length(max = 3)
+    @JsonProperty
     private String content;
-
-    public HelloWorld() {
-        // Jackson deserialization
-    }
-
-    public HelloWorld(long id, String content) {
-        this.id = id;
-        this.content = content;
-    }
-
-    @JsonProperty
-    public long getId() {
-        return id;
-    }
-
-    @JsonProperty
-    public String getContent() {
-        return content;
-    }
 }
