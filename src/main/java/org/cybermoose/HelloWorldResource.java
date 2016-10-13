@@ -27,6 +27,9 @@ public class HelloWorldResource {
     @Timed
     public HelloWorld sayHello(@QueryParam("name") String name) {
         final String value = String.format(template, StringUtils.defaultIfEmpty(name, defaultName));
-        return new HelloWorld(counter.incrementAndGet(), value);
+        return HelloWorld.builder()
+                .id(counter.incrementAndGet())
+                .content(value)
+                .build();
     }
 }
