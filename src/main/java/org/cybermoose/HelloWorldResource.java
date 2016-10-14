@@ -1,7 +1,7 @@
 package org.cybermoose;
 
 import com.codahale.metrics.annotation.Timed;
-import org.apache.commons.lang3.StringUtils;
+import io.dropwizard.jersey.params.NonEmptyStringParam;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -25,8 +25,8 @@ public class HelloWorldResource {
 
     @GET
     @Timed
-    public HelloWorld sayHello(@QueryParam("name") String name) {
-        final String value = String.format(template, StringUtils.defaultIfEmpty(name, defaultName));
+    public HelloWorld sayHello(@QueryParam("name") NonEmptyStringParam name) {
+        final String value = String.format(template, name.get().orElse(defaultName));
         return HelloWorld.builder()
                 .id(counter.incrementAndGet())
                 .content(value)
