@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
-@Builder
+@Builder(toBuilder = true)
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonDeserialize(builder = HelloWorld.HelloWorldBuilder.class)
